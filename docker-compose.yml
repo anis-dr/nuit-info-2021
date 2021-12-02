@@ -1,0 +1,51 @@
+# Docker Compose file Reference (https://docs.docker.com/compose/compose-file/)
+version: '3'
+
+#Define services
+services:
+
+  #PostgreSQL Database for the application
+  nuit-info-postgres:
+    image: "postgres:14-alpine"
+    container_name: nuit-info-postgres
+    #Volume mounted for database for the storage
+    volumes:
+      - nuit-info-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432 # Forward the exposed port 5432 on the container to port 5432 on the host machine
+
+    #Environment variable for DB name, user and password
+    environment:
+      - POSTGRES_DB=nuit-info
+      - POSTGRES_USER=nuit-info
+      - POSTGRES_PASSWORD=nuit-info
+
+  #Back-end Spring Boot Application
+  nuit-info-api:
+    #The docker file in scrum-app build the jar and provides the docker image with the following name.
+    build: ./nuit-info-api
+    container_name: nuit-info-api
+
+    #Environment variables for Spring Boot Application.
+    environment:
+      - DB_SERVER=nuit-info-postgres
+      - POSTGRES_DB=nuit-info
+      - POSTGRES_USER=nuit-info
+      - POSTGRES_PASSWORD=nuit-info
+    ports:
+      - 8080:8080 # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    links:
+      - nuit-info-postgres
+
+  #front-end Next Application
+  nuit-info-ui:
+    build: ./nuit-info-ui
+    container_name: nuit-info-ui
+    ports:
+      - 3000:3000
+    links:
+      - nuit-info-api
+
+#Volumes for DB data
+volumes:
+  nuit-info-data:
