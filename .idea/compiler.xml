@@ -13,6 +13,7 @@
     <bytecodeTargetLevel>
       <module name="nuit-info-api" target="17" />
       <module name="nuitinfo-api" target="11" />
+      <module name="wrapper" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
