@@ -2,21 +2,18 @@ package com.nuitinfo.nuitinfoapi.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 public class SavedPerson extends Person {
-    @Temporal(TemporalType.DATE)
     @Column(name = "saved_at")
-    private Date savedAt;
+    private LocalDateTime savedAt;
 
-    public Date getSavedAt() {
+    public LocalDateTime getSavedAt() {
         return savedAt;
     }
 
-    public void setSavedAt(Date savedAt) {
+    public void setSavedAt(LocalDateTime savedAt) {
         this.savedAt = savedAt;
     }
 }

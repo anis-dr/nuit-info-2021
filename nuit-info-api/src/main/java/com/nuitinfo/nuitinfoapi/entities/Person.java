@@ -1,12 +1,14 @@
 package com.nuitinfo.nuitinfoapi.entities;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Table(name = "person")
 @Entity
 public class Person {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
 
