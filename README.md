@@ -5,6 +5,7 @@ nuit-info-api is a Spring Boot app - nuit-info-ui is a NextJS application - nuit
 app
 
 ## You can see the class diagram in ```nuit-info-2021.drawio.png```
+## You can find a postman collection for testing in ```./Nuit Info 2021.postman_collection.json```
 
 ## How to build
 
