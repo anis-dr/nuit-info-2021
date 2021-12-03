@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @NoArgsConstructor
