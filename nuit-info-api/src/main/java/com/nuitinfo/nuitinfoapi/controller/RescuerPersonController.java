@@ -20,9 +20,8 @@ public class RescuerPersonController {
     }
 
     @GetMapping()
-    public List<RescuerPerson> getAllRescuer(){
-        List<RescuerPerson> getAllRescuer = rescuerPersonRepository.findAll();
-        return getAllRescuer;
+    public List<RescuerPerson> getAll(){
+        return rescuerPersonRepository.findAll();
     }
 
 }

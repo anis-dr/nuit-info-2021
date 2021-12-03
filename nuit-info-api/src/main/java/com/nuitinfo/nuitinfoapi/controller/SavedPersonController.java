@@ -20,8 +20,7 @@ public class SavedPersonController {
 
     @GetMapping()
     public List<SavedPerson> getAllSaved() {
-        List<SavedPerson> allSaved = savedPersonRepository.findAll();
-        return allSaved;
+        return savedPersonRepository.findAll();
     }
 
 
